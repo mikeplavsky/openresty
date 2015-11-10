@@ -1,5 +1,7 @@
 FROM debian:wheezy
 
+ENV UPDATED 11-10-2015
+
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
     curl perl make build-essential procps \
