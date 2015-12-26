@@ -1,6 +1,6 @@
 FROM debian:wheezy
 
-ENV UPDATED 11-10-2015
+ENV UPDATED 26-12-2015
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
@@ -8,7 +8,7 @@ RUN apt-get update \
     libreadline-dev libncurses5-dev libpcre3-dev libssl-dev \
  && rm -rf /var/lib/apt/lists/*
 
-ENV OPENRESTY_VERSION 1.9.3.1
+ENV OPENRESTY_VERSION 1.9.7.1
 ENV OPENRESTY_PREFIX /opt/openresty
 ENV NGINX_PREFIX /opt/openresty/nginx
 ENV VAR_PREFIX /var/nginx
@@ -34,7 +34,8 @@ RUN  echo "==> Configuring OpenResty..." \
     --with-luajit \
     --with-pcre-jit \
     --with-ipv6 \
-    --with-http_ssl_module
+    --with-http_ssl_module \
+    --with-http_v2_module
 
 RUN make
 RUN make install
